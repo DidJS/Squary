@@ -1,0 +1,53 @@
+<!doctype html> 
+<html lang="en"> 
+<head> 
+	<meta charset="UTF-8" />
+	<title>Squary adventure</title>
+    <script type="text/javascript" src="lib/phaser.min.js"></script>
+    <script type="text/javascript" src="js/BootState.js"></script>
+    <script type="text/javascript" src="js/PreloaderState.js"></script>
+    <script type="text/javascript" src="js/IntroState.js"></script>
+    <script type="text/javascript" src="js/MenuState.js"></script>
+    <script type="text/javascript" src="js/GameState.js"></script>
+    <style type="text/css">
+        <style>
+            body {
+                background-color: red;
+            }
+            #main-div {
+             width: 400px;
+             height:360px;
+             margin: 0px auto;
+             margin-top: 70px;
+             vertical-align: middle;
+
+           }
+           #title {
+            text-align: center;
+            color: #fff;
+            text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+            font: 60px 'ChunkFiveRegular';
+           }
+        </style>
+    </style>
+</head>
+<body>
+
+    <div id='title'>Squary adventure</div>
+    <div id='main-div'>
+    </div>
+    <script type="text/javascript">
+
+    var game = new Phaser.Game(400, 360, Phaser.AUTO, 'main-div');
+
+    game.state.add('boot', bootState(game));
+    game.state.add('preloader', preloaderState(game));
+    game.state.add('intro', introState(game));
+    game.state.add('menu', menuState(game));
+    game.state.add('game', gameState(game));
+    game.state.start('boot');
+
+    </script>
+
+</body>
+</html>
